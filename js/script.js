@@ -14,7 +14,6 @@ $("#search-button").click(function(){
       return response.json();
     })
     .then(function(data) {
-    debugger;
       var pic_url = data.data[0].images.preview_gif.url;
 
        $('#results').append('<img src=' + pic_url + '>');
