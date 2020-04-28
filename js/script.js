@@ -2,6 +2,9 @@
 //******************TEST EARLY AND OFTEN USING console.log() ******************
 //****************** SERIOUSLY TEST USING console.log()!!! ******************
 /* global $ */
+function getRandomInt(max) {
+  return Math.floor(Math.random() * Math.floor(max));
+}
 
 $("#search-button").click(function(){
     var choice = $("#search-term").val();
@@ -14,9 +17,10 @@ $("#search-button").click(function(){
       return response.json();
     })
     .then(function(data) {
-      var pic_url = data.data[0].images.preview_gif.url;
+      var random = getRandomInt(26);
+      var pic_url = data.data[random].images.preview_gif.url;
 
-       $('#results').append('<img src=' + pic_url + '>');
+       $('#results').append('<img src=' + pic_url + '> <br>');
     })
   
   
